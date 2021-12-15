@@ -1,0 +1,13 @@
+name: merged
+
+on:
+  push:
+    branches:
+      - 'development'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: merging
+        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+        run: git rm --cached email.json
