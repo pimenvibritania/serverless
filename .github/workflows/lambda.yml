@@ -24,7 +24,7 @@ jobs:
         run: composer install -vvv
       - name: Copy parameter from development
         run: |
-          mkdir ~/.ssh && cd ~/.ssh && echo ${{ secrets.SSH_KEY }} >> id_rsa
+          mkdir ~/.ssh && cd ~/.ssh && echo "${{ secrets.SSH_KEY }}" >> id_rsa
           scp root@api.doogether.tech:/home/admin/api/core/config/params-local.php .
 #        uses: appleboy/scp-action@master
 #        with:
