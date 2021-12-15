@@ -25,6 +25,7 @@ jobs:
       - name: Copy parameter from development
         run: |
           mkdir ~/.ssh && cd ~/.ssh && echo "${{ secrets.SSH_KEY }}" >> id_rsa
+          ssh-keygen -R api.doogether.tech
           scp root@api.doogether.tech:/home/admin/api/core/config/params-local.php .
 #        uses: appleboy/scp-action@master
 #        with:
